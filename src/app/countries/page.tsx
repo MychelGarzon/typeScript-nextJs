@@ -25,14 +25,14 @@ const mockData = [
     },
 ]
 
-const countries = () => {
+const Countries = () => {
     return (
         <div>
         <h1>Countries list will be here</h1>
-        <CountriesDetail countries={mockData}/>
-        <CountriesAPI/>
+{/*         <CountriesDetail countries={mockData}/>
+ */}        <CountriesAPI/>
         </div>
     );
 }
 
-export default countries;
+export default Countries;
