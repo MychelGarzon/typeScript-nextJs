@@ -2,11 +2,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
+interface CountryCapital  {
+  capital : string[];
+}  
+
 const CountriesAPI = () => { 
-    const [countries, setCountries] = useState([]); 
+    const [countries, setCountries] = useState<CountryCapital[]>([]); 
 
     const getCountriesInfo = async () => {
-        const response = await axios.get("https://restcountries.com/v3.1/all?fields=name,capital");
+        const response = await axios.get("https://restcountries.com/v3.1/all?fields=capital");
         console.log(response);
         if (response.data){
             setCountries(response.data);
@@ -16,6 +20,14 @@ const CountriesAPI = () => {
         getCountriesInfo();
     }, []); 
 
-    return <h1>Countries API will be here</h1>
+    return (
+        <div>
+            {countries.map((country) => (        
+                <div key={country.capital[0]}>
+                    <h2>{country.capital[0]}</h2>
+                </div>
+            ))}
+        </div>
+    );
 }
 export default CountriesAPI;
