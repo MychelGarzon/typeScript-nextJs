@@ -1,3 +1,4 @@
+import CountriesAPI from "./CountriesAPI";
 import CountriesDetail from "./CountriesDetail";
 
 const mockData = [
@@ -29,6 +30,7 @@ const countries = () => {
         <div>
         <h1>Countries list will be here</h1>
         <CountriesDetail countries={mockData}/>
+        <CountriesAPI/>
         </div>
     );
 }
